@@ -22,7 +22,6 @@ const useAnimes = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    console.log("Working");
     setLoading(true);
     apiClient
       .get<FetchResponse>("", { signal: controller.signal })
