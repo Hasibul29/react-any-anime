@@ -5,20 +5,15 @@ import AnimeGrid from "./components/AnimeGrid";
 function App() {
   return (
     <Grid
-      templateAreas={`"header header"
-                      "nav main"
-                      "nav footer"`}
+      templateAreas={`"header"
+                      "main"
+                      "footer"`}
       gridTemplateRows={"70px 1fr 30px"}
-      gridTemplateColumns={{ base: "1fr", lg: "200px 1fr" }}
+      gridTemplateColumns={"1fr"}
     >
       <GridItem area={"header"}>
         <HeaderBar />
       </GridItem>
-      <Show above="lg">
-        <GridItem bg="pink.300" area={"nav"}>
-          Nav
-        </GridItem>
-      </Show>
       <GridItem area={"main"}>
         <AnimeGrid />
       </GridItem>
