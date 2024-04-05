@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 import HeaderBar from "./components/HeaderBar";
 import AnimeGrid from "./components/AnimeGrid";
 
@@ -9,18 +9,20 @@ function App() {
                       "nav main"
                       "nav footer"`}
       gridTemplateRows={"70px 1fr 30px"}
-      gridTemplateColumns={"150px 1fr"}
+      gridTemplateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
-      <GridItem pl="2" area={"header"}>
+      <GridItem area={"header"}>
         <HeaderBar />
       </GridItem>
-      <GridItem pl="2" bg="pink.300" area={"nav"}>
-        Nav
-      </GridItem>
-      <GridItem pl="2" area={"main"}>
+      <Show above="lg">
+        <GridItem bg="pink.300" area={"nav"}>
+          Nav
+        </GridItem>
+      </Show>
+      <GridItem area={"main"}>
         <AnimeGrid />
       </GridItem>
-      <GridItem pl="2" bg="blue.300" area={"footer"}>
+      <GridItem bg="blue.300" area={"footer"}>
         Footer
       </GridItem>
     </Grid>
