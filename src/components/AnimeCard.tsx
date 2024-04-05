@@ -1,30 +1,19 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { List, ListItem } from "@chakra-ui/react";
-
-interface Anime {
-  title: string;
-}
-
-interface FetchResponse {
-  data: Anime[];
-}
+import { CircularProgress, List, ListItem } from "@chakra-ui/react";
+import useAnimes from "../hooks/useAnimes";
 
 const AnimeCard = () => {
-  const [animeList, setAnimeList] = useState<Anime[]>([]);
-
-  useEffect(() => {
-    apiClient
-      .get<FetchResponse>("")
-      .then((resp) => setAnimeList(resp.data.data))
-      .catch((e) => console.log(e));
-  }, []);
+  const { animeList, error, isLoading } = useAnimes();
+  console.log(animeList);
+  if (error) return <p>{error}</p>;
   return (
-    <List>
-      {animeList.map((anime) => (
-        <ListItem>{anime.title}</ListItem>
-      ))}
-    </List>
+    <>
+      {isLoading && <CircularProgress />}
+      <List>
+        {animeList.map((anime) => (
+          <ListItem key={anime.mal_id}>{anime.title}</ListItem>
+        ))}
+      </List>
+    </>
   );
 };
 
