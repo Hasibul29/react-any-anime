@@ -1,6 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import HeaderBar from "./components/HeaderBar";
-import AnimeCard from "./components/AnimeCard";
+import AnimeGrid from "./components/AnimeGrid";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
       <GridItem pl="2" bg="pink.300" area={"nav"}>
         Nav
       </GridItem>
-      <GridItem pl="2" bg="green.300" area={"main"}>
-        <AnimeCard />
+      <GridItem pl="2" area={"main"}>
+        <AnimeGrid />
       </GridItem>
       <GridItem pl="2" bg="blue.300" area={"footer"}>
         Footer

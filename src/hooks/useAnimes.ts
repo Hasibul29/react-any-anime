@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { AxiosError, CanceledError } from "axios";
 
-interface Anime {
+export interface Anime {
   mal_id: number;
   title: string;
   images: {
