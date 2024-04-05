@@ -10,6 +10,10 @@ export interface Anime {
       image_url: string;
     };
   };
+  score: number;
+  episodes: number;
+  rank: number;
+  rating: string;
 }
 
 interface FetchResponse {
