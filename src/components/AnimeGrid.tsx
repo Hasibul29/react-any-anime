@@ -8,7 +8,11 @@ const AnimeGrid = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}>
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+      spacing={5}
+      padding={5}
+    >
       {isLoading && <CircularProgress />}
       {animeList.map((anime) => (
         <AnimeCard anime={anime} key={anime.mal_id} />
