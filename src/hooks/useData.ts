@@ -11,7 +11,7 @@ const useData = <T>(
   deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
-  const [error, setError] = useState(endPoint);
+  const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   useEffect(
@@ -19,7 +19,7 @@ const useData = <T>(
       const controller = new AbortController();
       setLoading(true);
       apiClient
-        .get<FetchResponse<T>>("", {
+        .get<FetchResponse<T>>(endPoint, {
           signal: controller.signal,
           ...requestConfig,
         })

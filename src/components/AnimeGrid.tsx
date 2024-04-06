@@ -3,7 +3,7 @@ import AnimeCard from "./AnimeCard";
 import useAnimes from "../hooks/useAnimes";
 
 const AnimeGrid = () => {
-  const { animeList, error, isLoading } = useAnimes();
+  const { data, error, isLoading } = useAnimes();
 
   if (error) return <p>{error}</p>;
 
@@ -14,7 +14,7 @@ const AnimeGrid = () => {
       padding={5}
     >
       {isLoading && <CircularProgress />}
-      {animeList.map((anime) => (
+      {data.map((anime) => (
         <AnimeCard anime={anime} key={anime.mal_id} />
       ))}
     </SimpleGrid>

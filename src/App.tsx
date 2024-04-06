@@ -1,6 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import HeaderBar from "./components/HeaderBar";
 import AnimeGrid from "./components/AnimeGrid";
+import GenreList from "./components/GenreList";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <HeaderBar />
       </GridItem>
       <GridItem area={"main"}>
+        <GenreList />
         <AnimeGrid />
       </GridItem>
       <GridItem bg="blue.300" area={"footer"}>

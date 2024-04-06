@@ -14,6 +14,6 @@ export interface Anime {
   rating: string;
 }
 
-const useAnimes = () => useData("");
+const useAnimes = () => useData<Anime>("/anime");
 
 export default useAnimes;
