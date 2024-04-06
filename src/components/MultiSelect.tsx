@@ -44,8 +44,6 @@ const MultiSelect = ({ title, options, onChange }: Props) => {
         <Menu closeOnSelect={false}>
           <MenuButton
             as={Button}
-            colorScheme="blue"
-            variant={"outline"}
             rightIcon={<Icon as={AiFillCaretDown} />}
             maxW={"2xs"}
           >
