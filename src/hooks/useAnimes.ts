@@ -24,6 +24,7 @@ const useAnimes = (animeQuery: AnimeQuery) =>
           ?.map((genre) => genre.mal_id)
           .join(","),
         status: animeQuery.status,
+        type: animeQuery.type,
       },
     },
     [animeQuery]

@@ -5,10 +5,12 @@ import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genres } from "./hooks/useGenres";
 import StatusSelector from "./components/StatusSelector";
+import TypeSelector from "./components/TypeSelector";
 
 export interface AnimeQuery {
   selectedGenres: Genres[] | null;
   status: string;
+  type: string;
 }
 
 function App() {
@@ -37,6 +39,10 @@ function App() {
             onSelectStatus={(status) =>
               setAnimeQuery({ ...animeQuery, status })
             }
+          />
+          <TypeSelector
+            selectedType={animeQuery.type}
+            onSelectType={(type) => setAnimeQuery({ ...animeQuery, type })}
           />
         </HStack>
 
