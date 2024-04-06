@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Wrap } from "@chakra-ui/react";
+import { Grid, GridItem, Wrap } from "@chakra-ui/react";
 import HeaderBar from "./components/HeaderBar";
 import AnimeGrid from "./components/AnimeGrid";
 import GenreList from "./components/GenreList";

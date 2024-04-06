@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import useGenres, { Genres } from "../hooks/useGenres";
 import MultiSelect from "./MultiSelect";
 
