@@ -25,6 +25,7 @@ const useAnimes = (animeQuery: AnimeQuery) =>
           .join(","),
         status: animeQuery.status,
         type: animeQuery.type,
+        q: animeQuery.q,
       },
     },
     [animeQuery]

@@ -6,11 +6,13 @@ import { useState } from "react";
 import { Genres } from "./hooks/useGenres";
 import StatusSelector from "./components/StatusSelector";
 import TypeSelector from "./components/TypeSelector";
+import SearchInput from "./components/SeachInput";
 
 export interface AnimeQuery {
   selectedGenres: Genres[] | null;
   status: string;
   type: string;
+  q: string;
 }
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
             selectedType={animeQuery.type}
             onSelectType={(type) => setAnimeQuery({ ...animeQuery, type })}
           />
+          <SearchInput onSearch={(q) => setAnimeQuery({ ...animeQuery, q })} />
         </HStack>
 
         <AnimeGrid animeQuery={animeQuery} />
