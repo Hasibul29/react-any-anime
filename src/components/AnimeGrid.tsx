@@ -1,9 +1,14 @@
 import { CircularProgress, SimpleGrid } from "@chakra-ui/react";
 import AnimeCard from "./AnimeCard";
 import useAnimes from "../hooks/useAnimes";
+import { AnimeQuery } from "../App";
 
-const AnimeGrid = () => {
-  const { data, error, isLoading } = useAnimes();
+interface Props {
+  animeQuery: AnimeQuery;
+}
+
+const AnimeGrid = ({ animeQuery }: Props) => {
+  const { data, error, isLoading } = useAnimes(animeQuery);
 
   if (error) return <p>{error}</p>;
 

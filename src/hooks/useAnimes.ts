@@ -1,3 +1,4 @@
+import { AnimeQuery } from "../App";
 import useData from "./useData";
 
 export interface Anime {
@@ -14,6 +15,17 @@ export interface Anime {
   rating: string;
 }
 
-const useAnimes = () => useData<Anime>("/anime");
+const useAnimes = (animeQuery: AnimeQuery) =>
+  useData<Anime>(
+    "/anime",
+    {
+      params: {
+        genres: animeQuery.selectedGenres
+          ?.map((genre) => genre.mal_id)
+          .join(","),
+      },
+    },
+    [animeQuery]
+  );
 
 export default useAnimes;

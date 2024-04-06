@@ -1,7 +1,11 @@
-import useGenres from "../hooks/useGenres";
+import useGenres, { Genres } from "../hooks/useGenres";
 import MultiSelect from "./MultiSelect";
 
-const GenreList = () => {
+interface Props {
+  selectedGenre: (genres: Genres[]) => void;
+}
+
+const GenreList = ({ selectedGenre }: Props) => {
   const { data, error } = useGenres();
   if (error) return null;
   return (
@@ -9,7 +13,7 @@ const GenreList = () => {
       title="Genres"
       options={data.map((genre) => genre.name)}
       onChange={(selected) =>
-        console.log(data.filter((genre) => selected.includes(genre.name)))
+        selectedGenre(data.filter((genre) => selected.includes(genre.name)))
       }
     />
   );
