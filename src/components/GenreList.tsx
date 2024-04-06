@@ -1,15 +1,17 @@
-import { List, ListItem } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
+import MultiSelect from "./MultiSelect";
 
 const GenreList = () => {
   const { data, error } = useGenres();
   if (error) return null;
   return (
-    <List>
-      {data.map((genre) => (
-        <ListItem key={genre.mal_id}>{genre.name}</ListItem>
-      ))}
-    </List>
+    <MultiSelect
+      title="Genres"
+      options={data.map((genre) => genre.name)}
+      onChange={(selected) =>
+        console.log(data.filter((genre) => selected.includes(genre.name)))
+      }
+    />
   );
 };
 

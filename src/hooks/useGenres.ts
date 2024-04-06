@@ -1,10 +1,10 @@
-import useData from "./useData";
+import genres from "../data/genre";
 
-interface Genres {
+export interface Genres {
   mal_id: number;
   name: string;
 }
 
-const useGenres = () => useData<Genres>("/genres/anime");
+const useGenres = () => ({ data: genres, isLoading: false, error: null });
 
 export default useGenres;
