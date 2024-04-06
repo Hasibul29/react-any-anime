@@ -1,16 +1,18 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, HStack } from "@chakra-ui/react";
 import HeaderBar from "./components/HeaderBar";
 import AnimeGrid from "./components/AnimeGrid";
 import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genres } from "./hooks/useGenres";
+import StatusSelector from "./components/StatusSelector";
 
 export interface AnimeQuery {
   selectedGenres: Genres[] | null;
+  status: string;
 }
 
 function App() {
-  const [anmieQuery, setanimeQuery] = useState<AnimeQuery>({} as AnimeQuery);
+  const [animeQuery, setAnimeQuery] = useState<AnimeQuery>({} as AnimeQuery);
 
   return (
     <Grid
@@ -24,12 +26,21 @@ function App() {
         <HeaderBar />
       </GridItem>
       <GridItem area={"main"} marginTop={10}>
-        <GenreList
-          selectedGenre={(selectedGenres) =>
-            setanimeQuery({ ...anmieQuery, selectedGenres })
-          }
-        />
-        <AnimeGrid animeQuery={anmieQuery} />
+        <HStack>
+          <GenreList
+            selectedGenre={(selectedGenres) =>
+              setAnimeQuery({ ...animeQuery, selectedGenres })
+            }
+          />
+          <StatusSelector
+            selectedStatus={animeQuery.status}
+            onSelectStatus={(status) =>
+              setAnimeQuery({ ...animeQuery, status })
+            }
+          />
+        </HStack>
+
+        <AnimeGrid animeQuery={animeQuery} />
       </GridItem>
       <GridItem bg="blue.300" area={"footer"}>
         Footer

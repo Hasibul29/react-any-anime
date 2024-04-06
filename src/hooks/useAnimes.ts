@@ -23,6 +23,7 @@ const useAnimes = (animeQuery: AnimeQuery) =>
         genres: animeQuery.selectedGenres
           ?.map((genre) => genre.mal_id)
           .join(","),
+        status: animeQuery.status,
       },
     },
     [animeQuery]
