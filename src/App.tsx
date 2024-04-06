@@ -23,7 +23,7 @@ function App() {
       <GridItem area={"header"} paddingY={2}>
         <HeaderBar />
       </GridItem>
-      <GridItem area={"main"}>
+      <GridItem area={"main"} marginTop={10}>
         <GenreList
           selectedGenre={(selectedGenres) =>
             setanimeQuery({ ...anmieQuery, selectedGenres })
