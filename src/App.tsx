@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Wrap } from "@chakra-ui/react";
 import HeaderBar from "./components/HeaderBar";
 import AnimeGrid from "./components/AnimeGrid";
 import GenreList from "./components/GenreList";
@@ -22,15 +22,15 @@ function App() {
     <Grid
       templateAreas={`"header"
                       "main"
-                      "footer"`}
-      gridTemplateRows={"70px 1fr 30px"}
+                      `}
+      gridTemplateRows={"70px 1fr"}
       gridTemplateColumns={"1fr"}
     >
       <GridItem area={"header"} paddingY={2}>
         <HeaderBar />
       </GridItem>
       <GridItem area={"main"} marginTop={10}>
-        <HStack>
+        <Wrap marginLeft={5} spacingY={5} spacingX={3}>
           <GenreList
             selectedGenre={(selectedGenres) =>
               setAnimeQuery({ ...animeQuery, selectedGenres })
@@ -47,12 +47,9 @@ function App() {
             onSelectType={(type) => setAnimeQuery({ ...animeQuery, type })}
           />
           <SearchInput onSearch={(q) => setAnimeQuery({ ...animeQuery, q })} />
-        </HStack>
+        </Wrap>
 
         <AnimeGrid animeQuery={animeQuery} />
-      </GridItem>
-      <GridItem bg="blue.300" area={"footer"}>
-        Footer
       </GridItem>
     </Grid>
   );

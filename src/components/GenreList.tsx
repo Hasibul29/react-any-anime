@@ -10,15 +10,13 @@ const GenreList = ({ selectedGenre }: Props) => {
   const { data, error } = useGenres();
   if (error) return null;
   return (
-    <Box marginLeft={5}>
-      <MultiSelect
-        title="Genres"
-        options={data.map((genre) => genre.name)}
-        onChange={(selected) =>
-          selectedGenre(data.filter((genre) => selected.includes(genre.name)))
-        }
-      />
-    </Box>
+    <MultiSelect
+      title="Genres"
+      options={data.map((genre) => genre.name)}
+      onChange={(selected) =>
+        selectedGenre(data.filter((genre) => selected.includes(genre.name)))
+      }
+    />
   );
 };
 
