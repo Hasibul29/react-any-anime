@@ -10,7 +10,7 @@ const GenreList = ({ selectedGenre }: Props) => {
   const { data, error } = useGenres();
   if (error) return null;
   return (
-    <Box marginX={5}>
+    <Box marginLeft={5}>
       <MultiSelect
         title="Genres"
         options={data.map((genre) => genre.name)}
